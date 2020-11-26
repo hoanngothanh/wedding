@@ -787,20 +787,24 @@
                                                                  lang="en-US" dir="ltr">
                                                                 <div class="screen-reader-response" role="alert"
                                                                      aria-live="polite"></div>
-                                                                <form id="myForm" action="javascript:;" method="post" class="wpcf7-form init">
+                                                                <form id="myForm" action="javascript:;" method="post"
+                                                                      class="wpcf7-form init">
                                                                     <p><label>Tên bạn</label><br><span
-                                                                            class="wpcf7-form-control-wrap guestname"><input
-                                                                            type="text" name="name" value="" size="40"
-                                                                            required
-                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-block"
-                                                                            aria-required="true" aria-invalid="false"/></span>
+                                                                            class="wpcf7-form-control-wrap guestname">
+                                                                        <input type="text" name="name" value=""
+                                                                               size="40" required
+                                                                               class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-block"
+                                                                               aria-required="true"
+                                                                               aria-invalid="false"/></span>
                                                                     </p>
                                                                     <p><label>Số điện thoại</label><br><span
-                                                                            class="wpcf7-form-control-wrap email"><input
-                                                                            type="tel" name="phone" value="" size="40"
-                                                                            required class="wpcf7-form-control wpcf7-text wpcf7-email
+                                                                            class="wpcf7-form-control-wrap email">
+                                                                        <input type="tel" name="phone" value=""
+                                                                               size="40"
+                                                                               required class="wpcf7-form-control wpcf7-text wpcf7-email
                                                                             wpcf7-validates-as-required wpcf7-validates-as-email input-block"
-                                                                            aria-required="true" aria-invalid="false"/></span>
+                                                                               aria-required="true"
+                                                                               aria-invalid="false"/></span>
                                                                     </p>
                                                                     <p><label>Bạn sẽ tham dự chứ?</label><br><span
                                                                             class="wpcf7-form-control-wrap attend"><span
@@ -821,9 +825,10 @@
                                                                                   aria-invalid="false"></textarea></span>
                                                                     </p>
                                                                     <p>
-                                                                        <input type="button" onclick="SubForm($(this))"
-                                                                               value="Ký RSVP của bạn"
-                                                                               class="wpcf7-form-control wpcf7-submit input-block"/>
+                                                                        <button type="submit"
+                                                                                class="wpcf7-form-control wpcf7-submit input-block">
+                                                                            Ký RSVP của bạn
+                                                                        </button>
                                                                     </p>
                                                                     <p>
                                                                         <button type="button"
@@ -938,7 +943,7 @@
                                           class="attachment-full size-full" alt="Tống Đức &amp; Thúy Nga"
                                           srcset="images/footer-logo.png 210w, images/footer-logo-150x150.png 150w"
                                           sizes="(max-width: 210px) 100vw, 210px"/></div>
-            <div class="footer-copyright site-info"> Copyright © 2020 — Author Đức Nga
+            <div class="footer-copyright site-info"> Copyright © 2020 — Tống Đức <3 Thúy Nga
             </div>
         </div>
     </footer>
@@ -982,15 +987,19 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 <script>
-    function SubForm(_this) {
-        _this.attr('disabled', true);
+    $('#myForm').submit(function (e) {
+        e.preventDefault();
+
+        let btn = $('button[type="submit"]');
+
+        btn.attr('disabled', true);
 
         $.ajax({
             url: "https://api.apispreadsheets.com/data/4073/",
             type: "post",
             data: $("#myForm").serializeArray(),
             success: function () {
-                _this.attr('disabled', false);
+                btn.attr('disabled', false);
 
                 $("#myForm").trigger('reset');
 
@@ -999,10 +1008,10 @@
             error: function () {
                 alert("Có lỗi xảy ra. Hãy thử lại :(");
 
-                _this.attr('disabled', false);
+                btn.attr('disabled', false);
             }
         });
-    }
+    });
 
     // Get the modal
     var modal = document.getElementById("myModal");
