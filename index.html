@@ -784,34 +784,19 @@
                                                                  lang="en-US" dir="ltr">
                                                                 <div class="screen-reader-response" role="alert"
                                                                      aria-live="polite"></div>
-                                                                <form action=""
-                                                                      method="post" class="wpcf7-form init"
-                                                                      novalidate="novalidate">
-                                                                    <div style="display: none;"><input type="hidden"
-                                                                                                       name="_wpcf7"
-                                                                                                       value="37"/>
-                                                                        <input type="hidden" name="_wpcf7_version"
-                                                                               value="5.2.1"/> <input type="hidden"
-                                                                                                      name="_wpcf7_locale"
-                                                                                                      value="en_US"/>
-                                                                        <input type="hidden" name="_wpcf7_unit_tag"
-                                                                               value="wpcf7-f37-p8-o1"/> <input
-                                                                                type="hidden"
-                                                                                name="_wpcf7_container_post" value="8"/>
-                                                                        <input type="hidden"
-                                                                               name="_wpcf7_posted_data_hash" value=""/>
-                                                                    </div>
+                                                                <form id="myForm" action="javascript:;" method="post" class="wpcf7-form init">
                                                                     <p><label>Tên bạn</label><br><span
                                                                             class="wpcf7-form-control-wrap guestname"><input
-                                                                            type="text" name="guestname" value=""
-                                                                            size="40"
+                                                                            type="text" name="name" value="" size="40"
+                                                                            required
                                                                             class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-block"
                                                                             aria-required="true" aria-invalid="false"/></span>
                                                                     </p>
                                                                     <p><label>Số điện thoại</label><br><span
                                                                             class="wpcf7-form-control-wrap email"><input
-                                                                            type="email" name="email" value="" size="40"
-                                                                            class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email input-block"
+                                                                            type="tel" name="phone" value="" size="40"
+                                                                            required class="wpcf7-form-control wpcf7-text wpcf7-email
+                                                                            wpcf7-validates-as-required wpcf7-validates-as-email input-block"
                                                                             aria-required="true" aria-invalid="false"/></span>
                                                                     </p>
                                                                     <p><label>Bạn sẽ tham dự chứ?</label><br><span
@@ -827,12 +812,15 @@
                                                                             class="wpcf7-list-item-label">Xin lỗi, tôi không thể đến</span></label></span></span></span>
                                                                     </p>
                                                                     <p><label>Ghi chú</label><br><span
-                                                                            class="wpcf7-form-control-wrap notes"><textarea
-                                                                            name="notes" cols="40" rows="3"
-                                                                            class="wpcf7-form-control wpcf7-textarea input-block"
-                                                                            aria-invalid="false"></textarea></span></p>
-                                                                    <p><input type="submit" value="Ký RSVP của bạn"
-                                                                              class="wpcf7-form-control wpcf7-submit input-block"/>
+                                                                            class="wpcf7-form-control-wrap notes">
+                                                                        <textarea name="notes" cols="40" rows="3"
+                                                                                  class="wpcf7-form-control wpcf7-textarea input-block"
+                                                                                  aria-invalid="false"></textarea></span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <input type="button" onclick="SubForm($(this))"
+                                                                               value="Ký RSVP của bạn"
+                                                                               class="wpcf7-form-control wpcf7-submit input-block"/>
                                                                     </p>
                                                                     <p>
                                                                         <button type="button"
@@ -1000,7 +988,33 @@
 </script>
 <script defer
         src="js/main.js"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 <script>
+    function SubForm(_this) {
+        _this.attr('disabled', true);
+
+        $.ajax({
+            url: "https://api.apispreadsheets.com/data/4073/",
+            type: "post",
+            data: $("#myForm").serializeArray(),
+            success: function () {
+                _this.attr('disabled', false);
+
+                $("#myForm").trigger('reset');
+
+                alert("Xin cảm ơn :)");
+            },
+            error: function () {
+                alert("Có lỗi xảy ra. Hãy thử lại :(");
+
+                _this.attr('disabled', false);
+            }
+        });
+    }
+
     // Get the modal
     var modal = document.getElementById("myModal");
 
