@@ -368,18 +368,40 @@
 </head>
 <body id="goto-top"
       class="page-template page-template-page-templates page-template-one-page page-template-page-templatesone-page-php page page-id-8 jackrose-enable-animations siteorigin-panels siteorigin-panels-before-js">
-<div id="page" class="hfeed site">
-    <div class="hero-section">
-        <div class="hero-slide-background section-background">
-            <img class="image-bg" src="images/hero-poster.jpg" width="800" height="450">
-            <video autoplay loop muted playsinline preload="none" class="video-bg " width="800" height="450" data-stellar-ratio="0.5">
-                <source type="video/mp4" src="media/hero.mp4">
-                <source type="video/ogg" src="media/hero.ogv">
-                <source type="video/webm" src="media/hero.webm">
-            </video>
+<div id="preloader" class="preloader">
+    <div class="wrapper">
+        <div class="preloader-content">
+            <img src="images/duc-nga.png" width="400" height="400"></div>
+    </div>
+</div>
+<div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    <div id="top"></div>
+    <div id="hero" class="hero-section">
+        <div class="hero-slider" data-jackrose-autoplay="5000">
+            <div id="hero-slide-0" class="hero-slide">
+                <div class="hero-slide-background section-background">
+                    <img class="image-bg"
+                         src="images/hero-poster.jpg"
+                         width="800"
+                         height="450"
+                         data-stellar-ratio="0.5">
+                    <video autoplay loop muted playsinline preload="none" class="video-bg "
+                           width="800"
+                           height="450"
+                           data-stellar-ratio="0.5">
+                        <source type="video/mp4"
+                                src="media/hero.mp4">
+                        <source type="video/ogg"
+                                src="media/hero.ogv">
+                        <source type="video/webm"
+                                src="media/hero.webm">
+                    </video>
+                </div>
+                <div class="hero-slide-overlay" style="background-color: rgba(180,210,200,0.3)"></div>
+            </div>
         </div>
-        <div class="hero-slide-overlay" style="background-color: rgba(180,210,200,0.3)"></div>
-        <div class="hero-logo">
+        <div id="hero-effect" class="hero-effect" data-jackrose-effect="petal"></div>
+        <div id="hero-logo" class="hero-logo">
             <div class="wrapper">
                 <div class="hero-logo-image"><img width="400" height="400"
                                                   src="images/duc-nga.png"
