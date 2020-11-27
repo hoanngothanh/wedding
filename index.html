@@ -8,6 +8,8 @@
     <script type="text/javascript">paceOptions = {
         target: '#preloader .preloader-content',
     }</script>
+    <!-- AddEvent script -->
+    <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
           integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -478,6 +480,7 @@
                                                                 <div class="jackrose-sow-couple-intro-name typography-heading">
                                                                     TỐNG VĂN ĐỨC
                                                                 </div>
+
                                                             </div>
                                                             <div class="jackrose-sow-couple-intro-separator "><img
                                                                     width="160" height="100"
@@ -696,6 +699,20 @@
                                                                         <span>Thôn Kim Bảng A, Thị Trấn Yên Thịnh, Huyện Yên Mô, Tỉnh Ninh Bình</span>
                                                                     </p>
                                                                 </div>
+
+                                                                <!-- Button code -->
+                                                                <div title="Thêm vào lịch" class="addeventatc"
+                                                                     style="margin-top: 20px;"
+                                                                >
+                                                                    Add to Calendar
+                                                                    <span class="start">30-11-2020 08:00</span>
+                                                                    <span class="end">30-11-2020 10:00</span>
+                                                                    <span class="timezone">Asia/Bangkok</span>
+                                                                    <span class="title">Cưới Hoàn Linh</span>
+                                                                    <span class="alarm_reminder">1440</span>
+                                                                    <span class="description">Lễ cưới nhà gái</span>
+                                                                    <span class="location">32 Nguyễn Thị Thập, phố Cầu Hạc, Đông Thọ, Thành phố Thanh Hóa, Thanh Hoá</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="jackrose-sow-events-grid-item jackrose-animation-fade-in-up">
@@ -728,6 +745,19 @@
                                                                         <br>
                                                                         <span>(Ngày 21 tháng 10 năm Canh Tý)</span>
                                                                     </p>
+                                                                </div>
+                                                                <!-- Button code -->
+                                                                <div title="Thêm vào lịch" class="addeventatc"
+                                                                     style="margin-top: 20px;"
+                                                                >
+                                                                    Add to Calendar
+                                                                    <span class="start">30-11-2020 08:00</span>
+                                                                    <span class="end">30-11-2020 10:00</span>
+                                                                    <span class="timezone">Asia/Bangkok</span>
+                                                                    <span class="title">Cưới Hoàn Linh</span>
+                                                                    <span class="alarm_reminder">1440</span>
+                                                                    <span class="description">Lễ cưới nhà gái</span>
+                                                                    <span class="location">32 Nguyễn Thị Thập, phố Cầu Hạc, Đông Thọ, Thành phố Thanh Hóa, Thanh Hoá</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -995,7 +1025,7 @@
         btn.attr('disabled', true);
 
         $.ajax({
-            url: "https://api.apispreadsheets.com/data/4108/",
+            url: "https://api.apispreadsheets.com/data/4108",
             type: "post",
             data: $("#myForm").serializeArray(),
             success: function () {
